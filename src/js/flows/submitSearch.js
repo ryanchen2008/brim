@@ -1,6 +1,7 @@
 /* @flow */
 import type {Thunk} from "../state/types"
 import {globalDispatch} from "../state/GlobalContext"
+import Current from "../state/Current"
 import History from "../state/History"
 import Investigation from "../state/Investigation"
 import Notice from "../state/Notice"
@@ -20,7 +21,7 @@ export default function submitSearch(
   return function(dispatch, getState) {
     const time = brim.time(ts)
     const prevArgs = Search.getArgs(getState())
-    const space = Tab.space(getState())
+    const space = Current.getSpace(getState())
     const isIngesting = space && brim.space(space).ingesting()
     dispatch(SearchBar.submittingSearchBar(ts))
     dispatch(Tab.computeSpan())
