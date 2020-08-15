@@ -23,7 +23,7 @@ import type {
   ViewerStatus
 } from "./types"
 
-export const clear = (tabId: string): VIEWER_CLEAR => {
+export const clear = (tabId?: string): VIEWER_CLEAR => {
   return {type: "VIEWER_CLEAR", tabId}
 }
 
@@ -46,7 +46,7 @@ export const setEndStatus = (
 }
 
 export const appendRecords = (
-  tabId: string,
+  tabId: ?string,
   records: RecordData[]
 ): VIEWER_RECORDS => {
   return {type: "VIEWER_RECORDS", records, tabId}
